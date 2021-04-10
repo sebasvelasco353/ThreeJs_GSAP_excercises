@@ -1,0 +1,10 @@
+body {
+    background-color: black;
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+}
+#scene {
+    width: 100vw;
+    height: 100vh;
+}
