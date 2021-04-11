@@ -17,25 +17,32 @@ const geometry_one = new THREE.BoxBufferGeometry(2, 2, 2);
 const material_one = new THREE.MeshLambertMaterial({color: 0xFFCC00});
 // create a mesh based on the geometry and material
 const cube = new THREE.Mesh(geometry_one, material_one);
-cube.rotation.x = Math.PI/3;
+cube.position.x = window.innerWidth;
 
 // now we add the element (cube) to the scene
 scene.add(cube);
+
+// light in order to see the element
+const light = new THREE.PointLight(0xFFFFFF, 1, 500);
+light.position.set(10, 0, 25);
+scene.add(light);
 
 // now we create the renderer and render the element
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.append(renderer.domElement);
 
-const light = new THREE.PointLight(0xFFFFFF, 1, 500);
-light.position.set(10, 0, 25);
-scene.add(light);
-
 // renderer function that refreshes every frame
 const render = function() {
     requestAnimationFrame(render);
     renderer.render(scene, camera);
 }
+
+// Animation using GSAP
+this.tl = gsap.timeline().delay(.3);
+this.tl.to(cube.position, 1, {x: 2, ease: Expo.easeOut});
+this.tl.to(cube.rotation, 1, {y: 90, ease: Expo.easeOut});
+
 render();
 
 // Resize Canvas on window resize!
@@ -45,3 +52,4 @@ window.addEventListener('resize', () => {
 
     camera.updateProjectionMatrix();
 });
+
