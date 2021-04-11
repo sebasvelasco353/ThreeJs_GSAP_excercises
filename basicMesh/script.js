@@ -1,5 +1,4 @@
 const scene = new THREE.Scene();
-
 scene.background = null;
 const camera = new THREE.PerspectiveCamera(
     95, // Field of View
@@ -17,7 +16,6 @@ const geometry_one = new THREE.BoxBufferGeometry(2, 2, 2);
 const material_one = new THREE.MeshLambertMaterial({color: 0xFFCC00});
 // create a mesh based on the geometry and material
 const cube = new THREE.Mesh(geometry_one, material_one);
-cube.position.x = window.innerWidth;
 
 // now we add the element (cube) to the scene
 scene.add(cube);
@@ -39,11 +37,17 @@ const render = function() {
 }
 
 // Animation using GSAP
-this.tl = gsap.timeline().delay(.3);
-this.tl.to(cube.position, 1, {x: 2, ease: Expo.easeOut});
-this.tl.to(cube.rotation, 1, {y: 90, ease: Expo.easeOut});
+this.tl = gsap.timeline({paused: true}).delay(.3);
+this.tl.to(cube.position, .8, {x: 2, ease: Expo.easeOut});
+this.tl.to(cube.rotation, .5, {y: 1, ease: Expo.easeOut}, '-=0.4');
+this.tl.to(cube.position, 2, {x: -5, ease: Expo.easeOut}, '-=0.2');
 
 render();
+
+// play on click
+document.body.addEventListener('click', () => {
+    this.tl.play();
+});
 
 // Resize Canvas on window resize!
 window.addEventListener('resize', () => {
