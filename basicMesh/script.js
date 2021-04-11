@@ -51,10 +51,12 @@ function onMouseClick(event) {
     for (var i = 0; i<intersects.length; i++){
         // Animation using GSAP
         this.tl = gsap.timeline().delay(.3);
-        console.log(intersects[i].object)
         this.tl.to(intersects[i].object.position, .8, {x: 2, ease: Expo.easeOut});
         this.tl.to(intersects[i].object.rotation, .5, {y: 1, ease: Expo.easeOut}, '-=0.4');
         this.tl.to(intersects[i].object.position, 2, {x: -5, ease: Expo.easeOut}, '-=0.2');
+        this.tl.to(intersects[i].object.rotation, 2, {x: -2, ease: Expo.easeOut}, '-=0.2');
+        this.tl.to(light.position, 1, {y: -5, ease: Expo.easeOut}, '-=2');
+        this.tl.to(intersects[i].object.position, 2, {y: 5, ease: Expo.easeOut}, '-=0.2');
     }
 }
 
