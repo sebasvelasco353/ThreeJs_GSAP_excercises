@@ -35,19 +35,30 @@ const render = function() {
     requestAnimationFrame(render);
     renderer.render(scene, camera);
 }
-
-// Animation using GSAP
-this.tl = gsap.timeline({paused: true}).delay(.3);
-this.tl.to(cube.position, .8, {x: 2, ease: Expo.easeOut});
-this.tl.to(cube.rotation, .5, {y: 1, ease: Expo.easeOut}, '-=0.4');
-this.tl.to(cube.position, 2, {x: -5, ease: Expo.easeOut}, '-=0.2');
-
 render();
 
 // play on click
-document.body.addEventListener('click', () => {
-    this.tl.play();
-});
+const raycaster = new THREE.Raycaster();
+const mouse = new THREE.Vector2();
+
+function onMouseClick(event) {
+    event.preventDefault();
+    mouse.x = (event.clientX / window.innerWidth)*2-1;
+    mouse.y = -(event.clientY / window.innerHeight)*2+1;
+
+    raycaster.setFromCamera(mouse, camera);
+    let intersects = raycaster.intersectObjects(scene.children, true);
+    for (var i = 0; i<intersects.length; i++){
+        // Animation using GSAP
+        this.tl = gsap.timeline().delay(.3);
+        console.log(intersects[i].object)
+        this.tl.to(intersects[i].object.position, .8, {x: 2, ease: Expo.easeOut});
+        this.tl.to(intersects[i].object.rotation, .5, {y: 1, ease: Expo.easeOut}, '-=0.4');
+        this.tl.to(intersects[i].object.position, 2, {x: -5, ease: Expo.easeOut}, '-=0.2');
+    }
+}
+
+document.body.addEventListener('click', onMouseClick);
 
 // Resize Canvas on window resize!
 window.addEventListener('resize', () => {
