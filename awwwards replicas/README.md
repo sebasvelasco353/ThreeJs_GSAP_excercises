@@ -6,4 +6,4 @@ a link to the respective page in awwwards.
 all credits go to the designers and developers of that projects.
 
 ## Projects link:
-- [Armadillo-co](https://www.awwwards.com/sites/rhythm-of-nature)
+- [rhythmofnature](https://www.awwwards.com/sites/rhythm-of-nature)
