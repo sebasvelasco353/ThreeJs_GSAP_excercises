@@ -1,2 +1,4 @@
 const tl = gsap.timeline();
-tl.to('.body__image', .5, {scaleY:1});
+
+//tl.from('.header-title', 1, {})
+tl.from('.body__image', 1.5, {top: '100%'});
