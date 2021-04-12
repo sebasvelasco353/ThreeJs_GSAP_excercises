@@ -1,6 +1,8 @@
 * {
-    /*border: 1px red solid;*/
+    border: 1px red solid;
+
     box-sizing: border-box;
+    overflow: hidden;
     margin: 0;
     padding: 0;
 }
@@ -8,7 +10,7 @@ html {
     font-size: 10px;
 }
 body {
-    overflow-y: hidden;
+    overflow: hidden;
 
     color: white;
     background-color: rgb(143, 144, 137);
@@ -19,9 +21,11 @@ header {
     height: 10vh;
     display: flex;
     flex-direction: row;
-    padding: 0 20px;
+    padding: 0 60px;
+    overflow-y: hidden;
 
-    height: 10vh;
+    font-size: 2rem;
+    transform: translateX(45%);
     align-items: flex-end;
 }
 header h1 {
@@ -54,17 +58,22 @@ main {
     max-height:100%;
 }
 .container {
+    padding: 15% 20%;
     height: 80vh;
 }
-.body__image {
+.body-image__wrapper {
+   position: relative;
+   width: 100vw;
+   height: 100vh;
+}
+.body-image {
     position: absolute;
+    object-fit: cover;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     z-index: 0;
-    max-height: 100%;
-    max-width:100%;
 }
 
 /* footer stuff */
