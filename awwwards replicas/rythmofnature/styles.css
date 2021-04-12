@@ -1,5 +1,5 @@
 * {
-    border: 1px red solid;
+    /*border: 1px red solid;*/
 
     box-sizing: border-box;
     overflow: hidden;
@@ -61,6 +61,8 @@ main {
     padding: 15% 20%;
     height: 80vh;
 }
+
+/* Background image stuff */
 .body-image__wrapper {
    position: relative;
    width: 100vw;
