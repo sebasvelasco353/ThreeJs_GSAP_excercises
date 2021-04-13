@@ -23,6 +23,7 @@ TweenMax.staggerFromTo(
     .5
 );
 
-bg_tl.from('.image_wrapper', 3.5, {yPercent: 110, ease: "power2.out"});
-bg_tl.from('.image', 3.5, {yPercent: -110, ease: "power2.out"}, "-=3.5");
-bg_tl.to('.title', 1, {xPercent: 110, ease: "power2.inout"});
+bg_tl.to('.image_wrapper', 3.5, {yPercent: 110, ease: "power2.out"}, '+=3');
+bg_tl.to('.image', 3.5, {yPercent: -110, ease: "power2.out"}, "-=3.5");
+
+bg_tl.to('.title', 1, {xPercent: 110, ease: "power2.inout"}, '-=.5');
