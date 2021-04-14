@@ -26,4 +26,5 @@ TweenMax.staggerFromTo(
 bg_tl.to('.image_wrapper', 3.5, {yPercent: 110, ease: "power2.out"}, '+=3');
 bg_tl.to('.image', 3.5, {yPercent: -110, ease: "power2.out"}, "-=3.5");
 
-bg_tl.to('.title', 1, {xPercent: 110, ease: "power2.inout"}, '-=.5');
+bg_tl.to('.title', 1, {x: 0, yPercent: -50, fontSize: 16, ease: "power2.inout"}, '-=.5');
+bg_tl.fromTo('.nav-links', 2, {yPercent: 110}, {yPercent: 0})
