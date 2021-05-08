@@ -52,12 +52,12 @@ h1 {
     flex-direction: row;
     justify-content: space-around;
 }
-.home__welcome h1 {
+.welcome__text {
     flex: 2;
     font-size: 12rem;
     transform: rotate(270deg) translate(0px, 25vw);
 }
-.home__img {
+.welcome__img {
     width: 70vw;
     height: 75vw;
     position: relative;
